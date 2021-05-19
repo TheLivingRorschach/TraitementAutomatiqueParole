@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>2A SRI TAP - TP2</title>
+</head>
+
+<body>
+
+<h1 style="text-align: center;">2A SRI TAP - TP2<br>
+&nbsp; Classification de voyelles par lois gaussiennes</h1>
+
+<h2>Objectifs du TP, savoir :</h2>
+
+<ul>
+<li>vérifier le type des données à traiter,</li>
+<li>estimer les paramètres de lois gausiennes,</li>
+<li>réaliser une classification par cette approche Bayésienne,</li>
+<li>représenter visuellement les résultats.</li>
+</ul>
+
+<h2>Vérification des données</h2>
+
+<ul>
+<li>Charger les données suivantes : 
+    <span style="font-family: monospace;">load app_aa ; </span>
+    <span style="font-family: monospace;">load app_uu ; </span>
+    <span style="font-family: monospace;">load app_ii ; </span><br>
+Il s'agit de matrices 80x2 résultant d'une ACP sur une paramétrisation cepstrale (cf. TP1).</li><br>
+
+<li>Afficher l'histogramme de chacune des classes : aa, uu et ii. Que pouvez-vous conclure ?</li>
+</ul>
+
+<h2>Estimation de lois gaussiennes</h2>
+
+<ul>
+<li>Estimer les paramètres (moyenne et matrice de covariance) de chaque classe.</li><br>
+
+<li>Ecrire une fonction <span style="font-family: monospace;">classer </span> qui renvoie la classe obtenue par maximum de vraisemblance sur les lois gaussiennes estimées sur l'observation fournie en entrée :<br>
+<span style="font-family: monospace;">function no_classe = classer(observation,moyenne_aa,covariance_aa, ... <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+moyenne_uu,covariance_uu,moyenne_ii,covariance_ii) ;</span><br>
+<br>
+Des observations à tester peuvent être chargées de cette façon : <span style="font-family: monospace; color: rgb(0, 0, 0);">load
+tst_aa ; tst_uu ; tst_ii ;</span><br>
+
+Exemple de résultat : 
+<span style="font-family: monospace;">no_classe=classer(tst_aa(1,:),m_aa,c_aa,m_uu,c_uu,m_ii,c_ii)<br> =&gt; no_classe = 1</span></li>
+</ul>
+
+<h2>Représentation des résultats</h2>
+
+<ul>
+<li>Représenter en 2D les nuages de points par des couleurs différentes.</li><br>
+
+<li>Afficher les centroïdes des différentes classes.</li><br>
+
+<li>Réaliser une fonction qui effectue tous les tests de classification et qui affiche une matrice de confusion et un taux d'erreur.<br>
+
+<span style="font-family: monospace; color: rgb(0, 0, 0);">[matrice_confusion,taux_reco]=tout_tester(m_aa,c_aa,m_uu,c_uu,m_ii,c_ii)</span></li><br>
+
+<li>Commenter les résultats obtenus :<span style="font-family: monospace; color: rgb(0, 0, 0);"><br>
+matrice_confusion =<br>
+&nbsp;20&nbsp;&nbsp;0&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;0&nbsp;20&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;20<br>
+taux_reco = 1</span></li><br>
+
+<li>Réaliser une animation pour l'affichage des points de test (un par un avec des couleurs par exemple...).</li><br>
+
+</ul>
+
+</body>
+</html>
